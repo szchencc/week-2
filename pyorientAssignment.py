@@ -38,12 +38,25 @@ print 'received ' + str(numListings) + ' records'
 
 for record in records:
 	print record.price
+s=0
+for record in records:
+    s += record.price
+    
+    
+minprice = 100000000   
+for record in records:
+    if record.price < minprice:
+        minprice = record.price
 
+maxprice = 100
+for record in records:
+    if record.price > maxprice:
+        maxprice = record.price  
 
 # [PRINT OUT THE RESULTING VALUES BY CONCATENATING THEM TO THESE LINES TO CHECK YOUR WORK]
 
-print 'min price: '
-print 'max price: ' 
-print 'average price: '
+print 'min price: ' + str(minprice)
+print 'max price: ' + str(maxprice)
+print 'average price: ' + str(s/numListings)
 
-client.db_close()
+client.db_close() 
